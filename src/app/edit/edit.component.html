@@ -1,0 +1,43 @@
+<table class="table table-striped table-users">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">Email</th>
+      <th scope="col">Адрес</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of listUsers; index as i">
+    <th scope="row"> {{ item.id }}</th>
+      <td>
+        {{ item.FullName }}
+      </td>
+      <td>
+        {{ item.phone }}
+      </td>
+      <td>
+        {{ item.email }}
+      </td>
+      <td>
+        {{ item.address }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<h2>Редактировать</h2>
+<form #userEdit="ngForm" (ngSubmit)="onSubmint(userEdit.value)"> 
+    <input type="text" name="id" ngModel placeholder="id">
+    <input type="text" name="FullName" ngModel placeholder="FullName">
+    <input type="text" name="phone" ngModel placeholder="phone">
+    <input type="text" name="email" ngModel placeholder="email">
+    <input type="text" name="address" ngModel placeholder="address">
+    <button type="submit">Изменить</button>
+</form>
+<h2>Удалить</h2>
+<h6>введите id пользователя</h6>
+<form #userDelete="ngForm" (ngSubmit)="onDelete(userDelete.value)"> 
+    <input type="text" name="id" ngModel placeholder="id">
+    <button type="submit">Удалить</button>
+</form>
